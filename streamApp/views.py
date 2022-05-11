@@ -4,12 +4,13 @@ from django.http.response import StreamingHttpResponse
 import cv2 as cv
 import  numpy as np
 import pickle
-
+import os
 W=40
 H=94
 
 def index(request):
-    return render(request, 'index.html')
+    pid=os.getpid()
+    return render(request, 'index.html',{"PID":pid})
 
 
 def get_pos_list():
